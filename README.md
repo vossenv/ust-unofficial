@@ -1,8 +1,14 @@
+# Unoffical UST Resources
 
+The resources on this page are NOT officially supported by Adobe, but provide additional resources and information.  Any questions regarding the material here can be directed to per38285@adobe.com.
 
-# Building on the SUSE platforms
+# Installation on the SUSE platforms
 
-The Suse platforms are not officially supported, but the tool can be successfully compiled and deployed on them.  The following instructions work on openSUSE 42.3 and SLES12SP1+.  Other verisons will have very similar processes.  The primary difference is in the versioning of packages, particularly with SLES.  In some cases, openSUSE repositories can be borrowed if needed. If you are using vagrant/virtualbox for your builds, you can get the boxes used for this writeup from the Vagrant Cloud:
+Installation of the user sync tool is straightforward.  The install shell script provided [here](https://github.com/janssenda-adobe/UST-Install-Scripts) will allow a quick and easy installation.  The binaries are pulled from this repository, and apply to openSUSE as well as SLES SP1+.
+
+# Building the SUSE platforms
+
+The Suse platforms are not officially supported, but the tool can be successfully compiled and deployed on them. The following instructions work on openSUSE 42.3 and SLES12SP1+.  Other verisons will have very similar processes.  The primary difference is in the versioning of packages, particularly with SLES.  In some cases, openSUSE repositories can be borrowed if needed. If you are using vagrant/virtualbox for your builds, you can get the boxes used for this writeup from the Vagrant Cloud:
 
 [OpenSUSE Leap 42.3](https://app.vagrantup.com/danimaetrix/boxes/openSUSE-Leap-42.3)<br/>
 [SLES12 SP1](https://app.vagrantup.com/danimaetrix/boxes/sles12-sp1-sdk)  (w/DVD repositories)<br/>
@@ -87,11 +93,32 @@ Install the system dependencies first using the string below.  Make sure all of 
     ```
 * Or, for python 3:
 
+Fixes for the pex versioning issue and pip 10 install issue.
+
+https://github.com/adobe-apiplatform/user-sync.py/issues/351
+https://github.com/adobe-apiplatform/user-sync.py/issues/354
+And that's it! You should be able to follow the standard build process from here: create a virtual environment for your target python version, activate it and make the pex!
+
+## Build
+
+The build process is very straightforward once all the dependencies are in place.  The process is to create a python environment, and run the "make pex" command in the root folder.  
+
+* Clone the source repo (use wget to pull the release if git is not available)
     ```bash
-    sudo curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-    sudo zypper -n install python3 python3-devel dbus-1-python3
-	sudo python3 get-pip.py
-    sudo python3 -m pip install virtualenv pkgconfig
-    ```    
-And that's it! You should be able to follow the standard build process from here: create a virtual environment for your target python version, activate it and make pex!
+	sudo git clone https://github.com/adobe-apiplatform/user-sync.py.git
+    ```
+
+* Create and activate the virtual environment
+
+    ```bash
+	cd user-sync.py
+    sudo virtualenv venv;
+    source venv/bin/activate	
+    ```
+
+* Build the pex file.  It will be generated as *dist/user-sync*.
+
+    ```bash
+	sudo make pex
+    ```
 
