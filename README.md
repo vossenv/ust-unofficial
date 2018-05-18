@@ -95,7 +95,7 @@ Install the system dependencies first using the string below.  Make sure all of 
 
     ```bash
     sudo curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py;
-    sudo zypper -n install python3 python-devel3 dbus-1-python3;
+    sudo zypper -n install python3 python3-devel dbus-1-python3;
 	sudo python3 get-pip.py;
     sudo python3 -m pip install virtualenv pkgconfig
     ```
