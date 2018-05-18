@@ -6,7 +6,7 @@ The Suse platforms are not officially supported, but the tool can be successfull
 
 [OpenSUSE Leap 42.3](https://app.vagrantup.com/danimaetrix/boxes/openSUSE-Leap-42.3)<br/>
 [SLES12 SP1](https://app.vagrantup.com/danimaetrix/boxes/sles12-sp1-sdk)  (w/DVD repositories)<br/>
-[SLES12 SP3](https://app.vagrantup.com/danimaetrix/boxes/sles12-sp1-sdk)  (w/DVD repositories)
+[SLES12 SP3](https://app.vagrantup.com/danimaetrix/boxes/sles12-sp3-sdk)  (w/DVD repositories)
 
 
 ## Prerequisites
