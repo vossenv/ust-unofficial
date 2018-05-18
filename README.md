@@ -93,10 +93,13 @@ Install the system dependencies first using the string below.  Make sure all of 
     ```
 * Or, for python 3:
 
-Fixes for the pex versioning issue and pip 10 install issue.
+    ```bash
+    sudo curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py;
+    sudo zypper -n install python3 python-devel3 dbus-1-python3;
+	sudo python3 get-pip.py;
+    sudo python3 -m pip install virtualenv pkgconfig
+    ```
 
-https://github.com/adobe-apiplatform/user-sync.py/issues/351
-https://github.com/adobe-apiplatform/user-sync.py/issues/354
 And that's it! You should be able to follow the standard build process from here: create a virtual environment for your target python version, activate it and make the pex!
 
 ## Build
