@@ -86,9 +86,9 @@ Install the system dependencies first using the string below.  Make sure all of 
 *  In this procedure we use get-pip.py to install an updated version of pip, as pip related packages are not available from the SLES repositories.  
 
     ```bash
-    sudo curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py
-    sudo zypper -n install python python-devel dbus-1-python
-	sudo python get-pip.py
+    sudo curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py;
+    sudo zypper -n install python python-devel dbus-1-python;
+	sudo python get-pip.py;
     sudo python -m pip install virtualenv pkgconfig
     ```
 * Or, for python 3:
@@ -111,7 +111,7 @@ The build process is very straightforward once all the dependencies are in place
 * Create and activate the virtual environment
 
     ```bash
-	cd user-sync.py
+	cd user-sync.py;
     sudo virtualenv venv;
     source venv/bin/activate	
     ```
