@@ -22,7 +22,7 @@ In the case of openSUSE, there are no prerequisites.  However, SLES platforms mu
 * Your downloaded iso filename should resemble the following (for SLES 12 SP1): 
 
   ```bash
-   SLE-12-SP1-SDK-DVD-x86_64-GM-DVD1.iso
+  SLE-12-SP1-SDK-DVD-x86_64-GM-DVD1.iso
   ```
 * Next, copy the iso file onto your SLES VM and place it in a secure location. You can then add it as a repository source using the "zypper ar" command:
     
