@@ -86,23 +86,77 @@ Install the system dependencies first using the string below.  Make sure all of 
 *  In this procedure we use get-pip.py to install an updated version of pip, as pip related packages are not available from the SLES repositories.  
 
     ```bash
-    sudo curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py;
     sudo zypper -n install python python-devel dbus-1-python;
+    sudo wget https://bootstrap.pypa.io/get-pip.py -O get-pip.py;
 	sudo python get-pip.py;
     sudo python -m pip install virtualenv pkgconfig
     ```
 * Or, for python 3:
 
     ```bash
-    sudo curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py;
     sudo zypper -n install python3 python3-devel dbus-1-python3;
+    sudo wget https://bootstrap.pypa.io/get-pip.py -O get-pip.py;
 	sudo python3 get-pip.py;
     sudo python3 -m pip install virtualenv pkgconfig
     ```
 
 And that's it! You should be able to follow the standard build process from here: create a virtual environment for your target python version, activate it and make the pex!
 
-## Build
+
+# Building on Debian / Raspberry Pi (Raspbian)
+
+The tool can be built on Debian quite easily. The steps outlined here also allow you to build it on a Raspberry Pi running Raspbian Stretch!
+
+
+## Dependencies
+The following are dependencies for building user sync on the Debian platforms. They can be separated into system and python specific categories for easier installation.  For more detail on these dependencies and other requirements, please refer to the [official user sync documentation](https://github.com/adobe-apiplatform/user-sync.py). 
+  
+**System dependencies**
+* libssl-dev
+* libldap2-dev
+* libsasl2-dev
+* libffi-dev
+* libdbus-glib-1-dev
+* libdbus-1-dev
+
+**Python specific dependencies**
+* python
+* python-dev
+* python-virtualenv
+* python-pip
+* python-pkgconfig
+* python-dbus
+
+**<br/>Installation**
+
+Install the system dependencies first using the string below.  Make sure all of them install correctly, as the "-n" flag will answer prompts for conflicts with a negative response, so you may need to install some of them individually if this is the case. 
+
+* For your convenience, you can simply copy paste the following into your console:
+
+     ```bash
+     sudo apt-get install -y libssl-dev libldap2-dev libsasl2-dev libffi-dev libdbus-glib-1-dev libdbus-1-dev
+	 ```
+
+* Next, install the python specific dependencies. They can be installed according to which version of python you wish to build for.  The default is python 2, but you can use python 3 instead simply by replacing the words "python" with "python3" in all cases. 
+
+*  In this procedure we use get-pip.py to install an updated version of pip, as pip related packages are not available from the SLES repositories.  
+
+    ```bash
+    sudo apt-get install -y python python-dev python-dbus;
+    sudo wget https://bootstrap.pypa.io/get-pip.py -O get-pip.py;
+	sudo python get-pip.py;
+    sudo python -m pip install virtualenv pkgconfig
+    ```
+* Or, for python 3:
+
+    ```bash
+    sudo apt-get install -y python3 python3-dev python3-dbus;
+    sudo wget https://bootstrap.pypa.io/get-pip.py -O get-pip.py;
+	sudo python3 get-pip.py;
+    sudo python3 -m pip install virtualenv pkgconfig
+    ```
+
+## Build (All Platforms)
 
 The build process is very straightforward once all the dependencies are in place.  The process is to create a python environment, and run the "make pex" command in the root folder.  
 
