@@ -139,7 +139,7 @@ Install the system dependencies first using the string below.  Make sure all of 
 
 * Next, install the python specific dependencies. They can be installed according to which version of python you wish to build for.  The default is python 2, but you can use python 3 instead simply by replacing the words "python" with "python3" in all cases. 
 
-*  In this procedure we use get-pip.py to install an updated version of pip, as pip related packages are not available from the SLES repositories.  
+*  In this procedure we use get-pip.py to install an updated version of pip
 
     ```bash
     sudo apt-get install -y python python-dev python-dbus;
@@ -168,14 +168,15 @@ The build process is very straightforward once all the dependencies are in place
 * Create and activate the virtual environment
 
     ```bash
-	cd user-sync.py;
-    sudo virtualenv venv;
+    sudo -s
+    cd user-sync.py;
+    virtualenv venv;
     source venv/bin/activate	
     ```
 
 * Build the pex file.  It will be generated as *dist/user-sync*.
 
     ```bash
-	sudo make pex
+	make pex
     ```
 
