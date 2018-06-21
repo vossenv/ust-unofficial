@@ -4,7 +4,7 @@ The resources on this page are NOT officially supported by Adobe, but provide ad
 
 # Installation on the SUSE platforms
 
-Installation of the user sync tool is straightforward.  The install shell script provided [here](https://github.com/janssenda-adobe/UST-Install-Scripts) will allow a quick and easy installation.  The binaries are pulled from this repository, and apply to openSUSE as well as SLES SP1+.
+Installation of the user sync tool is straightforward.  The install shell script provided [here](https://github.com/adobe/UST-Install-Scripts) will allow a quick and easy installation.  The binaries are pulled from this repository, and apply to openSUSE as well as SLES SP1+.
 
 # Building the SUSE platforms
 
