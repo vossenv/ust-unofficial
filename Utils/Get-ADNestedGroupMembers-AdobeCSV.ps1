@@ -229,6 +229,6 @@ foreach($m in $userlist){
 }
 
 $uniqueUsers = ($unique.Values | ConvertTo-Csv -NoTypeInformation )
-$uniqueUsers[0] = "Identity Type, Username, Domain, Email, First Name, Last Name, Country Code"
+$uniqueUsers[0] = "Identity Type,Username,Domain,Email,First Name,Last Name,Country Code"
 $uniqueUsers | Foreach-Object {$_ -replace '"', ''} | Set-Content "users.csv" 
 
